@@ -170,7 +170,7 @@ public class ChromeDinosaur extends JPanel implements KeyListener, ActionListene
         if(e.getKeyCode() == KeyEvent.VK_1){
         if(dinosaur.y + dinosaur.height >= altezza && !isDucking){
             isDucking = true;
-            duckCounter = 20; // 60 frame = circa 1 secondo a 60fps
+            duckCounter = 20;
             dinosaur.image = dinoDuck;
             dinosaur.height = dinosaurDuckHeight;
             dinosaur.y = altezza - dinosaur.height; // Appoggia i piedi a terra
@@ -204,7 +204,7 @@ public class ChromeDinosaur extends JPanel implements KeyListener, ActionListene
     }
 
     public void move(){
-    // Gestione Timer Duck (1 secondo)
+    
     if (isDucking) {
         duckCounter--;
         if (duckCounter <= 0) {
@@ -224,13 +224,13 @@ public class ChromeDinosaur extends JPanel implements KeyListener, ActionListene
         dinosaur.y = altezza - dinosaur.height;
         velocityY = 0;
         
-        // Se non è in modalità "duck", assicura che ci sia la gif della corsa
+        
         if (!isDucking && dinosaur.image != dinoRun) {
             dinosaur.image = dinoRun;
         }
     }
 
-    // Logica cactus (lascia la tua attuale)
+    
     for(int i = 0; i < cactusArray.size(); i++){
         Block cactus = cactusArray.get(i);
         cactus.x += (score >= 150) ? velocityX - 2 : velocityX;
